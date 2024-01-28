@@ -4,11 +4,11 @@ let logCounter = 0;
 
 tutorialLink.addEventListener('click', (event) => {
     event.preventDefault();
-    createTutorial();
+    tutorialDivStyles();
 });
 
 
-function tutorialCutTree (){
+function logCounter (){
     let tutorialWcCounter = document.querySelector('#tutorial-wc-counter');
     console.log(tutorialWcCounter);
     window.setInterval(function(){
@@ -20,10 +20,11 @@ function tutorialCutTree (){
 }
 
 
-export function createTutorial (){
+export function tutorialDivStyles (){
 
     // tutorial container properties
     let tutorialDiv = document.createElement('div');
+    tutorialDiv.style = 
     tutorialDiv.style.width = '50vw';
     tutorialDiv.style.margin = '16px';
     tutorialDiv.style.padding = '16px';
@@ -42,25 +43,25 @@ export function createTutorial (){
     tutorialHeader.style.textAlign = 'center';
 
     // tutorial description properties
-    let tutorialDescription = document.createElement('div');
-    tutorialDescription.innerHTML = 'Welcome to the OSRS idle tutorial island, follow the instructions below.'
+    let tutorialWelcomeMsg = document.createElement('div');
+    tutorialWelcomeMsg.innerHTML = 'Welcome to the OSRS idle tutorial island, follow the instructions below.'
     
     // appends for tutorial div container
     mainContainer.appendChild(tutorialDiv);
     tutorialDiv.appendChild(tutorialHeader);
-    tutorialDiv.appendChild(tutorialDescription);
+    tutorialDiv.appendChild(tutorialWelcomeMsg);
     
     // calls wcElements function which contains all elements relating to tutorial wcing (buttons etc)
-    wcElements(tutorialDiv);
+    tutorialWcDiv(tutorialDiv);
     
 }
 
 
-export function wcElements (parentElement) {
+export function tutorialWcDiv (parentElement) {
     // tutorial skill header - displays current skill as a header
-    let skillHeader = document.createElement('div');
-    skillHeader.innerHTML = '<h3>Woodcutting</h3>';
-    skillHeader.style.color = 'rgb(137, 95, 9)';
+    let skillNameHeader = document.createElement('div');
+    skillNameHeader.innerHTML = '<h3>Woodcutting</h3>';
+    skillNameHeader.style.color = 'rgb(137, 95, 9)';
 
     // tutorial skill description
     let skillDescription = document.createElement('div');
@@ -85,10 +86,10 @@ export function wcElements (parentElement) {
     tutorialWcCounter.id = 'tutorial-wc-counter';
  
     // appends for wc div
-    parentElement.appendChild(skillHeader);
+    parentElement.appendChild(skillNameHeader);
     parentElement.appendChild(skillDescription);
     parentElement.appendChild(tutorialWcDiv);
     tutorialWcDiv.appendChild(tutorialChopWoodBtn);
     tutorialWcDiv.appendChild(tutorialWcCounter);
-    tutorialChopWoodBtn.addEventListener('click', tutorialCutTree);
+    tutorialChopWoodBtn.addEventListener('click', logCounter);
 }
