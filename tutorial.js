@@ -1,6 +1,6 @@
 let mainContainer = document.querySelector('.main-container');
 let tutorialLink = document.querySelector('#tutorial-link');
-let logCounter = 0;
+let counter = 0;
 
 tutorialLink.addEventListener('click', (event) => {
     event.preventDefault();
@@ -9,14 +9,31 @@ tutorialLink.addEventListener('click', (event) => {
 
 
 function logCounter (){
-    let tutorialWcCounter = document.querySelector('#tutorial-wc-counter');
-    console.log(tutorialWcCounter);
-    window.setInterval(function(){
-        console.log ('Normal logs cut: ' + logCounter);
-        logCounter++;
-        tutorialWcCounter.innerHTML = 'Logs chopped: ' + logCounter;
+    let cutLog = true;
 
-    },1000);
+    let tutorialWcCounter = document.querySelector('#tutorial-wc-counter');
+
+        if (cutLog){
+            let intervalId = window.setInterval(function(){
+                console.log ('Normal logs cut: ' + counter);
+                counter++;
+                tutorialWcCounter.innerHTML = 'Logs chopped: ' + counter;
+
+                 if (counter === 3){
+                    tutorialWcCounter.innerHTML = 'You have cut enough logs.';
+                    cutLog = false;
+                    clearInterval(intervalId);
+                    
+                }
+        
+            
+        
+        },1000);
+        
+    
+
+
+    }
 }
 
 
