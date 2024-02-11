@@ -1,5 +1,6 @@
 let mainContainer = document.querySelector('.main-container');
 let tutorialLink = document.querySelector('#tutorial-link');
+let tutorialChopWoodBtn = document.createElement('button');
 let counter = 0;
 
 tutorialLink.addEventListener('click', (event) => {
@@ -19,19 +20,19 @@ function logCounter (){
                 counter++;
                 tutorialWcCounter.innerHTML = 'Logs chopped: ' + counter;
 
-                 if (counter === 3){
+                 if (counter === 4){
                     tutorialWcCounter.innerHTML = 'You have cut enough logs.';
                     cutLog = false;
                     clearInterval(intervalId);
-                    
-                }
-        
-            
-        
-        },1000);
-        
-    
+                    tutorialChopWoodBtn.style.display = 'none';
+                    if (tutorialChopWoodBtn.style.display = 'none'){
+                        console.log('hidden');
+                    }
 
+                   
+                }
+
+        },1000);
 
     }
 }
@@ -41,7 +42,6 @@ export function tutorialDivStyles (){
 
     // tutorial container properties
     let tutorialDiv = document.createElement('div');
-    tutorialDiv.style = 
     tutorialDiv.style.width = '50vw';
     tutorialDiv.style.margin = '16px';
     tutorialDiv.style.padding = '16px';
@@ -84,9 +84,8 @@ export function tutorialWcDiv (parentElement) {
     let skillDescription = document.createElement('div');
     skillDescription.innerHTML = 'First we will start with the woodcutting skill, click the chop button to start chopping wood. Chop 3 logs.';
 
-    // chop button, chop counter
+    // chop counter
     let tutorialWcDiv = document.createElement('div');
-    let tutorialChopWoodBtn = document.createElement('button');
     let tutorialWcCounter = document.createElement('span');
 
     // container div for chop button and log counter properties
